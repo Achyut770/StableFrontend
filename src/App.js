@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import AddCollateral from "./Components/AddColataral";
+import CollateralForm from "./Components/CollateralForm";
+import Navbar from "./Components/Navbar";
+import StableCoinStatus from "./Components/StableCoinStatus";
+import PriceHistory from "./Components/PriceHistory"; // Import PriceHistory
+import useGetData from "./hooks/useGetData";
+import { reserveContractAddress } from "./utils/contractAddress";
 
 function App() {
+  const { data: owner } = useGetData("owner", reserveContractAddress);
+  console.log("Owner", owner);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navbar />
+      <div className="p-6 space-y-6 flex gap-3 flex-row flex-wrap ">
+        <AddCollateral owner={owner} />
+        <CollateralForm owner={owner} />
+        <StableCoinStatus />
+      </div>
+      <PriceHistory /> {/* Add PriceHistory component */}
     </div>
   );
 }
