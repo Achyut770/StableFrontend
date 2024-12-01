@@ -20,8 +20,9 @@ const PriceHistory = () => {
         return { price, date };
       });
       console.log("Datas", datas);
+      const finalData = datas?.reverse();
 
-      setPriceHistory(datas || []);
+      setPriceHistory(finalData || []);
     };
 
     fetchPriceHistory();
