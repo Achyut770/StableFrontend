@@ -1,6 +1,6 @@
-export const stableCoinAddress = "0x82A69E25a60D487447B32d7e9e1425e85ab4D8e9";
+export const stableCoinAddress = "0x9186E2fA45f455d5c560305A075bd2851356f6CC";
 export const governanceContractAddress =
-  "0x193aafdE1cB1564d69764aB1733939a37702CDb7";
+  "0x9AfbbBE2FB8dfCb74Fd2310B1822127DB024Fa51";
 export const reserveContractAddress =
   "0x5814A7a953c83E1E65d04cC6D8962Bf99f156C39";
 export const USDTaddress = "0x8159fEBD7fD43CdBdF36804983886BF1Cc017Ef2";

@@ -12,14 +12,16 @@ const PriceHistory = () => {
       const datas = events?.map((items) => {
         const dateObj = new Date(Number(items.data.time) * 1000);
 
-        const date = dateObj.toISOString().split("T")[0];
+        const rawDate = dateObj.toISOString().split("T")[0]; // YYYY-MM-DD
+        const time = dateObj.toISOString().split("T")[1].slice(0, 5); // HH:mm
+
+        const date = `${rawDate}/${time}`;
         const price =
           items.data.stableTotalSupply == 0.0
             ? 0
             : items.data.reserveValue / items.data.stableTotalSupply;
         return { price, date };
       });
-      console.log("Datas", datas);
       const finalData = datas?.reverse();
 
       setPriceHistory(finalData || []);
